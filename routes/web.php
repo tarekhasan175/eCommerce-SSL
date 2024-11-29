@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Frontend\Layouts\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
@@ -11,11 +12,14 @@ use App\Http\Middleware\TokenAuthenticate;
 use App\Models\ProductSlider;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+// Frontend Routes
+Route::get('/', [HomeController::class,'index'])->name('home');
 
+// Backend Routes
 //Brand List
 Route::get('/brand-list', [BrandController::class,'BrandList'])->name('brand.list');
 
